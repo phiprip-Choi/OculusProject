@@ -805,7 +805,7 @@ public class LocomotionTeleport : MonoBehaviour
 
         Vector3 destPosition = destTransform.position;
         destPosition.y += character.height * 0.5f;
-        Quaternion destRotation = _teleportDestination.LandingRotation; // destTransform.rotation;
+        Quaternion destRotation = _teleportDestination.LandingRotation; //destTransform.rotation;
 #if false
         Quaternion destRotation = destTransform.rotation;
 
@@ -821,7 +821,7 @@ public class LocomotionTeleport : MonoBehaviour
 
         characterTransform.position = destPosition;
 
-        float yAngle = Mathf.DeltaAngle(destRotation.eulerAngles.y , LocomotionController.CameraRig.centerEyeAnchor.rotation.y);
+        float yAngle = destRotation.eulerAngles.y - LocomotionController.CameraRig.centerEyeAnchor.rotation.eulerAngles.y;
         characterTransform.rotation = Quaternion.Euler(characterTransform.eulerAngles + Vector3.up * yAngle);
         DeactivateDestination();
         character.enabled = true;
