@@ -30,6 +30,7 @@ public class TeleportTargetHandlerPhysical : TeleportTargetHandler
         // If the ray hits the world, consider it valid and update the aimRay to the end point.
         if (LocomotionTeleport.AimCollisionTest(start, end, AimCollisionLayerMask, out AimData.TargetHitInfo))
         {
+            if (AimData.TargetHitInfo.collider.gameObject.layer == 7) return false;
             var d = (end - start).normalized;
 
             end = start + d * AimData.TargetHitInfo.distance;
@@ -37,5 +38,11 @@ public class TeleportTargetHandlerPhysical : TeleportTargetHandler
         }
 
         return false;
+    }
+
+    protected override bool ConsiderTeleportPath(Vector3 start, Vector3 end)
+    {
+        return LocomotionTeleport.AimCollisionTest(start, end, AimCollisionLayerMask, out AimData.TargetHitInfo)
+            && AimData.TargetHitInfo.collider.gameObject.layer == 5;
     }
 }
