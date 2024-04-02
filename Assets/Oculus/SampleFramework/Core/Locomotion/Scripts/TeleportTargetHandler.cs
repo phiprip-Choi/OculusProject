@@ -118,7 +118,6 @@ public abstract class TeleportTargetHandler : TeleportSupport
     /// <param name="end"></param>
     protected abstract bool ConsiderTeleport(Vector3 start, ref Vector3 end);
 
-    protected abstract bool ConsiderTeleportPath(Vector3 start, Vector3 end);
 
     const float ERROR_MARGIN = 0.1f;
 
@@ -147,6 +146,12 @@ public abstract class TeleportTargetHandler : TeleportSupport
         }
 
         return location;
+    }
+
+    private bool ConsiderTeleportPath(Vector3 start, Vector3 end)
+    {
+        return LocomotionTeleport.AimCollisionTest(start, end, AimCollisionLayerMask, out AimData.TargetHitInfo)
+            && AimData.TargetHitInfo.collider.gameObject.layer == 5;
     }
 
 }
