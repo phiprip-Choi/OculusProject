@@ -1172,6 +1172,10 @@ PrefabInstance:
       propertyPath: OrientationMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4313295509351798309, guid: 9f9a2e984a22ef043ad627de076356e6, type: 3}
+      propertyPath: AimCollisionLayerMask.m_Bits
+      value: 192
+      objectReference: {fileID: 0}
     - target: {fileID: 8016789659182122886, guid: 9f9a2e984a22ef043ad627de076356e6, type: 3}
       propertyPath: m_Enabled
       value: 0
