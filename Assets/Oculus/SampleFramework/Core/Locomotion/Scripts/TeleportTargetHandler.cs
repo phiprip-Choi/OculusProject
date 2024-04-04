@@ -84,9 +84,9 @@ public abstract class TeleportTargetHandler : TeleportSupport
                 AimData.Points.Add(adjustedPoint);
                 if (AimData.TargetValid)
                 {
-                    for (int j = 0; j < AimData.Points.Count - 1; j++)
-                        AimData.TargetValid = !ConsiderTeleportPath(AimData.Points[j], AimData.Points[j + 1]);
-                    transform.GetChild(1).gameObject.SetActive(AimData.TargetValid);
+                 //   for (int j = 0; j < AimData.Points.Count - 1; j++)
+    //                    AimData.TargetValid = !ConsiderTeleportPath(AimData.Points[j], AimData.Points[j + 1]);
+  //                  transform.GetChild(1).gameObject.SetActive(AimData.TargetValid);
 
                     AimData.Destination = ConsiderDestination(adjustedPoint);
                     AimData.TargetValid = AimData.Destination.HasValue;
@@ -151,7 +151,7 @@ public abstract class TeleportTargetHandler : TeleportSupport
     private bool ConsiderTeleportPath(Vector3 start, Vector3 end)
     {
         return LocomotionTeleport.AimCollisionTest(start, end, AimCollisionLayerMask, out AimData.TargetHitInfo)
-            && AimData.TargetHitInfo.collider.gameObject.layer == 5;
+            && AimData.TargetHitInfo.collider.gameObject.layer == 7;
     }
 
 }
