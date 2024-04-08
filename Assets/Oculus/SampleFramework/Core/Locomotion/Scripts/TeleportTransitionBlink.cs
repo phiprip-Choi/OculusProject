@@ -67,11 +67,11 @@ public class TeleportTransitionBlink : TeleportTransition
                 teleported = true;
                 LocomotionTeleport.DoTeleport();
             }
-            //float fadeLevel = FadeLevels.Evaluate(elapsedTime / TransitionDuration);
-            //OVRInspector.instance.fader.SetFadeLevel(fadeLevel);
+            float fadeLevel = FadeLevels.Evaluate(elapsedTime / TransitionDuration);
+            OVRScreenFade.instance.SetUIFade(fadeLevel);
         }
 
-        //OVRInspector.instance.fader.SetFadeLevel(0);
+        OVRScreenFade.instance.SetUIFade(0f);
 
         LocomotionTeleport.IsTransitioning = false;
     }
