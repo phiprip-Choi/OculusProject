@@ -20,8 +20,8 @@ public class VRPlayer : MonoBehaviour
     void Update()
     {
         Rotate();
-        if(rb.isKinematic != Physics.BoxCast(transform.position, groudSzie, Vector3.down, out hit, transform.rotation, maxDistance))
-            rb.isKinematic = !rb.isKinematic;
+        //if(rb.isKinematic != Physics.BoxCast(transform.position, groudSzie, Vector3.down, out hit, transform.rotation, maxDistance))
+        //    rb.isKinematic = !rb.isKinematic;
         
     }
 
