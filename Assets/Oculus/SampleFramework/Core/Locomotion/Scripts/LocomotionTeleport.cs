@@ -384,7 +384,7 @@ public class LocomotionTeleport : MonoBehaviour
         // ensure the prefab isn't active in order to delay event handler setup until after it has been
         // configured with a reference to this object.
         TeleportDestinationPrefab.gameObject.SetActive(false);
-        TeleportDestination td = GameObject.Instantiate(TeleportDestinationPrefab, transform);
+        TeleportDestination td = GameObject.Instantiate(TeleportDestinationPrefab);
         td.LocomotionTeleport = this;
         td.gameObject.layer = TeleportDestinationLayer;
         _teleportDestination = td;
@@ -801,11 +801,9 @@ public class LocomotionTeleport : MonoBehaviour
         var characterTransform = character.transform;
         var destTransform = _teleportDestination.OrientationIndicator;
 
-        character.enabled = false;
-
         Vector3 destPosition = destTransform.position;
         destPosition.y += character.height * 0.5f;
-        Quaternion destRotation = _teleportDestination.LandingRotation; //destTransform.rotation;
+        Quaternion destRotation = _teleportDestination.LandingRotation; // destTransform.rotation;
 #if false
         Quaternion destRotation = destTransform.rotation;
 
@@ -820,11 +818,7 @@ public class LocomotionTeleport : MonoBehaviour
         }
 
         characterTransform.position = destPosition;
-
-        float yAngle = destRotation.eulerAngles.y - LocomotionController.CameraRig.centerEyeAnchor.rotation.eulerAngles.y;
-        characterTransform.rotation = Quaternion.Euler(characterTransform.eulerAngles + Vector3.up * yAngle);
-        DeactivateDestination();
-        character.enabled = true;
+        characterTransform.rotation = destRotation;
     }
 
     /// <summary>
@@ -845,11 +839,11 @@ public class LocomotionTeleport : MonoBehaviour
     {
         Quaternion headRotation = Quaternion.identity;
 #if UNITY_2019_1_OR_NEWER
-        //UnityEngine.XR.InputDevice device = UnityEngine.XR.InputDevices.GetDeviceAtXRNode(UnityEngine.XR.XRNode.Head);
-        //if (device.isValid)
-        //{
-        //    device.TryGetFeatureValue(UnityEngine.XR.CommonUsages.deviceRotation, out headRotation);
-        //
+        UnityEngine.XR.InputDevice device = UnityEngine.XR.InputDevices.GetDeviceAtXRNode(UnityEngine.XR.XRNode.Head);
+        if (device.isValid)
+        {
+            device.TryGetFeatureValue(UnityEngine.XR.CommonUsages.deviceRotation, out headRotation);
+        }
 #elif UNITY_2017_2_OR_NEWER
         List<UnityEngine.XR.XRNodeState> nodeStates = new List<UnityEngine.XR.XRNodeState>();
         UnityEngine.XR.InputTracking.GetNodeStates(nodeStates);
@@ -864,7 +858,6 @@ public class LocomotionTeleport : MonoBehaviour
 #else
         headRotation = InputTracking.GetLocalRotation(VRNode.Head);
 #endif
-        headRotation = LocomotionController.CameraRig.centerEyeAnchor.localRotation;
         Vector3 euler = headRotation.eulerAngles;
         euler.x = 0;
         euler.z = 0;
