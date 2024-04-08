@@ -384,7 +384,7 @@ public class LocomotionTeleport : MonoBehaviour
         // ensure the prefab isn't active in order to delay event handler setup until after it has been
         // configured with a reference to this object.
         TeleportDestinationPrefab.gameObject.SetActive(false);
-        TeleportDestination td = GameObject.Instantiate(TeleportDestinationPrefab);
+        TeleportDestination td = GameObject.Instantiate(TeleportDestinationPrefab, transform);
         td.LocomotionTeleport = this;
         td.gameObject.layer = TeleportDestinationLayer;
         _teleportDestination = td;

@@ -48,7 +48,7 @@ public class TeleportAimVisualLaser : TeleportSupport
     void Awake()
     {
         LaserPrefab.gameObject.SetActive(false);
-        _lineRenderer = Instantiate(LaserPrefab);
+        _lineRenderer = Instantiate(LaserPrefab, transform);
     }
 
     protected override void AddEventHandlers()
