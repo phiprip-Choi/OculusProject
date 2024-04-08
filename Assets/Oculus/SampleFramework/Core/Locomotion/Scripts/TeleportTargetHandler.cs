@@ -152,6 +152,6 @@ public abstract class TeleportTargetHandler : TeleportSupport
     private bool ConsiderTeleportPath(Vector3 start, Vector3 end)
     {
         return LocomotionTeleport.AimCollisionTest(start, end, AimCollisionLayerMask, out AimData.TargetHitInfo)
-            && AimData.TargetHitInfo.collider.gameObject.layer == 5;
+            && AimData.TargetHitInfo.collider.gameObject.layer == 7;
     }
 }
