@@ -928,13 +928,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 134357741145741750, guid: 9f9a2e984a22ef043ad627de076356e6, type: 3}
+      propertyPath: m_Height
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 673286058912189976, guid: 9f9a2e984a22ef043ad627de076356e6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 673286058912189976, guid: 9f9a2e984a22ef043ad627de076356e6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.57
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 673286058912189976, guid: 9f9a2e984a22ef043ad627de076356e6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1696,6 +1700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef1c8ab53c77d1f438452ead6e613ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 1
   maxDistance: 1.75
   groudSzie: {x: 1, y: 0.5, z: 1}
 --- !u!54 &800954193
@@ -1744,6 +1749,10 @@ PrefabInstance:
     - target: {fileID: 1961015449260548417, guid: fdc9c491fa5ea294cbe82e93388e50b2, type: 3}
       propertyPath: m_Name
       value: Plane (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1961015449260548417, guid: fdc9c491fa5ea294cbe82e93388e50b2, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2352142226714588927, guid: fdc9c491fa5ea294cbe82e93388e50b2, type: 3}
       propertyPath: m_Mesh

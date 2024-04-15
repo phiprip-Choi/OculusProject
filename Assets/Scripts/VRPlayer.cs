@@ -5,22 +5,26 @@ using UnityEngine;
 
 public class VRPlayer : MonoBehaviour
 {
-
+    public float moveSpeed = 1f;
     public float maxDistance = 1.75f;
     public Vector3 groudSzie= new Vector3(1f, 0.5f, 1f);
 
+    private CharacterController controller;
+    private OVRCameraRig rig;
     private bool isRotate = false;
     private Rigidbody rb;
     RaycastHit hit;
 
     private void Start()
     {
+        controller = GetComponent<CharacterController>();
         rb = GetComponent<Rigidbody>();
+        rig = transform.GetChild(1).GetComponent<OVRCameraRig>();
     }
     void Update()
     {
         Rotate();
-
+        Movement();
     }
 
     private void LateUpdate()
@@ -47,7 +51,20 @@ public class VRPlayer : MonoBehaviour
         }
     }
 
+    private void Movement()
+    {
+        float lx = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).x;
+        float ly = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y;
+        if (Mathf.Abs(lx) >= 0.1f || Mathf.Abs(ly) >= 0.1f)
+        {
+            Quaternion adQuater = Quaternion.Euler(rig.centerEyeAnchor.eulerAngles +  new Vector3(0, transform.rotation.y, 0));
+            Vector3 dir = adQuater * Vector3.forward * moveSpeed * ly;
+            dir += adQuater * Vector3.right * moveSpeed * lx;
+            dir.y = 0;
 
+            controller.Move(dir * Time.deltaTime);
+        }
+    }
     void OnDrawGizmos()
     {
 
