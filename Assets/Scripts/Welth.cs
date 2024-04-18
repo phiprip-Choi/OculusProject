@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class Welth : MonoBehaviour
 {
-    public List<GameObject> welths;
+    public GameObject[] welths;
     private HashSet<GameObject> property;
 
     private void Start()
     {
-        welths = new List<GameObject>();
         property = new HashSet<GameObject>();
     }
 
@@ -25,7 +24,7 @@ public class Welth : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if( other.gameObject.layer == 8)
+        if(other.gameObject.layer == 8)
         {
             property.Remove(other.gameObject);
             Inspect();
@@ -34,7 +33,7 @@ public class Welth : MonoBehaviour
 
     private bool Inspect()
     {
-        if(property.Count == welths.Count)
+        if(property.Count == welths.Length)
         {
             foreach(GameObject obj in welths)
             {
