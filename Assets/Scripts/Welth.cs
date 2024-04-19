@@ -15,11 +15,17 @@ public class Welth : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == 8)
+        if (other.gameObject.layer == 8)
         {
             property.Add(other.gameObject);
-            Inspect();
+           // Debug.Log(other.gameObject.name);
+            if (Inspect())
+            {
+                foreach(GameObject go in property) Debug.Log(go.name);
+                Debug.Log("Âü");
+            }
         }
+
     }
 
     private void OnTriggerExit(Collider other)
@@ -39,7 +45,8 @@ public class Welth : MonoBehaviour
             {
                 if (!property.Contains(obj)) return false;
             }
+            return true;
         }
-        return true;
+        return false;
     }
 }

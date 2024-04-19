@@ -31,7 +31,7 @@ Transform:
   m_Children:
   - {fileID: 8395212397973669067}
   - {fileID: 5850155024068849063}
-  - {fileID: 3573687879105934452}
+  - {fileID: 3754614100886454970}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &1845658797488720248
@@ -60,13 +60,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1845658797488720248}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.009008801, y: -0.56, z: -0.0073194494}
-  m_LocalScale: {x: 0.9800562, y: 0.9870337, z: 1.0158036}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.88298965, y: -0.012000322, z: -0.0073199845}
+  m_LocalScale: {x: 0.9800563, y: 0.98703367, z: 1.0158036}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8724019765005681510}
-  m_Father: {fileID: 859067289342606248}
+  m_Father: {fileID: 3754614100886454970}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6902441441637121387
 MeshFilter:
@@ -451,3 +451,50 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7782629185529521090
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3754614100886454970}
+  - component: {fileID: 3654936819934190956}
+  m_Layer: 0
+  m_Name: Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3754614100886454970
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7782629185529521090}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.892, y: -0.548, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3573687879105934452}
+  m_Father: {fileID: 859067289342606248}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3654936819934190956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7782629185529521090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d277f2d5723d53941a55da5a1e75b314, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  degree: 60
+  isX: 1

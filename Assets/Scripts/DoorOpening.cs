@@ -5,8 +5,7 @@ using UnityEngine;
 public class DoorOpening : MonoBehaviour
 {
 
-    public float degree = 60f;
-    public bool isX = true;
+    public float degree = -60f;
     // Update is called once per frame
     void Update()
     {
@@ -19,7 +18,6 @@ public class DoorOpening : MonoBehaviour
 
     IEnumerator RotateDoor()
     {
-
         do
         {
             Debug.Log(transform.localRotation.eulerAngles.z);
