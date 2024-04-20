@@ -16,8 +16,8 @@ public class CustomSocket : MonoBehaviour
     public bool Freeze = true;
     public bool wasInSoket = false;
 
-    public UnityEvent SelectEnter;
-    public UnityEvent SelectExit;
+    public UnityEvent<GameObject> SelectEnter;
+    public UnityEvent<GameObject> SelectExit;
 
     private int count = 0;
     private GameObject Target;
@@ -38,7 +38,7 @@ public class CustomSocket : MonoBehaviour
             if (Target.GetComponentInParent<Grabbable>()._activeTransformer != null && wasInSoket == true)
             {
                 count = 0;
-                SelectExit.Invoke();
+                SelectExit.Invoke(Target);
 
                 if (Freeze == true)
                 {
@@ -72,7 +72,7 @@ public class CustomSocket : MonoBehaviour
             }
 
 
-            SelectEnter.Invoke();
+            SelectEnter.Invoke(Target);
 
             wasInSoket = true;
             count = 1;

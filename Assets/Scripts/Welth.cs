@@ -1,3 +1,4 @@
+using Oculus.Interaction;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,28 +14,24 @@ public class Welth : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter(Collider other)
+    public void AddWeldth(GameObject weldth)
     {
-        if (other.gameObject.layer == 8)
+        property.Add(weldth);
+        //Debug.Log(weldth.name);
+        if (Inspect())
         {
-            property.Add(other.gameObject);
-           // Debug.Log(other.gameObject.name);
-            if (Inspect())
+            foreach (GameObject go in property)
             {
-                foreach(GameObject go in property) Debug.Log(go.name);
-                Debug.Log("참");
+                Debug.Log(go.name);
+                Debug.Log("배치완료");
+                go.GetComponent<Grabbable>().enabled = false;
             }
         }
-
     }
 
-    private void OnTriggerExit(Collider other)
+    public void RemoveWeldth(GameObject weldth)
     {
-        if(other.gameObject.layer == 8)
-        {
-            property.Remove(other.gameObject);
-            Inspect();
-        }
+        property.Remove(weldth);
     }
 
     private bool Inspect()
