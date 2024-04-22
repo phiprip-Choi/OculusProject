@@ -11,7 +11,7 @@ public class Welth : MonoBehaviour
 
     private void Start()
     {
-        IsComplete = true;
+        IsComplete = false;
         property = new HashSet<GameObject>();
     }
 

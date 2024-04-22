@@ -33,7 +33,6 @@ public class CustomSocket : MonoBehaviour
             //Debug.LogError(other.gameObject.name +" Hit with Layermask");
             Target = other.gameObject;
             HoverObject();
-
             //If Target Object is grabbed and not actual in soket ( it would activate itself )
             if (Target.GetComponentInParent<Grabbable>()._activeTransformer != null && wasInSoket == true)
             {
@@ -60,7 +59,7 @@ public class CustomSocket : MonoBehaviour
         //place the Target Object in the Socket ( attach ) 
         if (count == 0)
         {
-            DestroyHoverObject();
+            //DestroyHoverObject();
 
             Target.transform.parent = Attach.transform;
             Target.transform.rotation = Attach.transform.rotation;
@@ -86,6 +85,7 @@ public class CustomSocket : MonoBehaviour
         if (hoverObject == null && wasInSoket == false)
         {
             //Debug.LogError("Hover Active");
+            Debug.Log(Target.name);
             hoverObject = Instantiate(Target, Attach.transform.position, Attach.transform.rotation);
             hoverObject.transform.parent = Attach.transform;
             hoverObject.layer = 0;

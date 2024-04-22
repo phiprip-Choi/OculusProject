@@ -60,7 +60,7 @@ public class VRPlayer : MonoBehaviour
             Quaternion adQuater = Quaternion.Euler(rig.centerEyeAnchor.eulerAngles +  new Vector3(0, transform.rotation.y, 0));
             Vector3 dir = adQuater * Vector3.forward * moveSpeed * ly;
             dir += adQuater * Vector3.right * moveSpeed * lx;
-            dir.y = 0;
+            dir.y = 0f;
 
             controller.Move(dir * Time.deltaTime);
         }
