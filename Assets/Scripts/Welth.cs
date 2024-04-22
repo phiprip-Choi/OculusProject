@@ -7,9 +7,11 @@ public class Welth : MonoBehaviour
 {
     public GameObject[] welths;
     private HashSet<GameObject> property;
+    public bool IsComplete { get; private set; }
 
     private void Start()
     {
+        IsComplete = true;
         property = new HashSet<GameObject>();
     }
 
@@ -20,6 +22,7 @@ public class Welth : MonoBehaviour
         //Debug.Log(weldth.name);
         if (Inspect())
         {
+            IsComplete = true;
             foreach (GameObject go in property)
             {
                 Debug.Log(go.name);

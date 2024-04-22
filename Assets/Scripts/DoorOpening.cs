@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class DoorOpening : MonoBehaviour
 {
+    public Welth welth1;
+    public Welth welth2;
+    public Welth welth3;
+    public Welth welth4;
 
     public float degree = -60f;
+
+    private bool isFirst = true;
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        bool isOpen = welth1.IsComplete && welth2.IsComplete && welth3.IsComplete && welth4.IsComplete;
+        if (isFirst && isOpen)
         {
             Debug.Log("Å¬¸¯");
+            isFirst = false;
             StartCoroutine(RotateDoor());
         }
     }
