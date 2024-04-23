@@ -60,10 +60,11 @@ public class CustomSocket : MonoBehaviour
         if (count == 0)
         {
             //DestroyHoverObject();
-
-            Target.transform.parent = Attach.transform;
-            Target.transform.rotation = Attach.transform.rotation;
+            Debug.Log(Target.name);
+            //Target.transform.parent = Attach.transform;
+            Target.transform.rotation = Attach.transform.localRotation;
             Target.transform.position = Attach.transform.position;
+            //Target.transform.localScale = scale;
             if (Freeze == true)
             {
                 rig = Target.GetComponent<Rigidbody>();
@@ -86,7 +87,7 @@ public class CustomSocket : MonoBehaviour
         {
             //Debug.LogError("Hover Active");
             Debug.Log(Target.name);
-            hoverObject = Instantiate(Target, Attach.transform.position, Attach.transform.rotation);
+            hoverObject = Instantiate(Target, Attach.transform.position, Attach.transform.localRotation);
             hoverObject.transform.parent = Attach.transform;
             hoverObject.layer = 0;
             hoverObject.GetComponent<Collider>().enabled = false;
