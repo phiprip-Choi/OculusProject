@@ -695,7 +695,7 @@ GameObject:
   - component: {fileID: 149060445}
   - component: {fileID: 149060446}
   m_Layer: 0
-  m_Name: Soket_Left
+  m_Name: Socket_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -985,7 +985,7 @@ GameObject:
   - component: {fileID: 290407092}
   - component: {fileID: 290407091}
   m_Layer: 0
-  m_Name: Soket_Right
+  m_Name: Socket_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1604,7 +1604,7 @@ GameObject:
   - component: {fileID: 549673047}
   - component: {fileID: 549673046}
   m_Layer: 0
-  m_Name: Soket_Left
+  m_Name: Socket_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3163,7 +3163,7 @@ GameObject:
   - component: {fileID: 1006217127}
   - component: {fileID: 1006217126}
   m_Layer: 0
-  m_Name: Soket _Mid
+  m_Name: Socket _Mid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3794,7 +3794,7 @@ GameObject:
   - component: {fileID: 1200363869}
   - component: {fileID: 1200363868}
   m_Layer: 0
-  m_Name: Soket_Mid
+  m_Name: Socket_Mid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4642,7 +4642,7 @@ GameObject:
   - component: {fileID: 1486309677}
   - component: {fileID: 1486309676}
   m_Layer: 0
-  m_Name: Soket_Right
+  m_Name: Socket_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5114,7 +5114,7 @@ GameObject:
   - component: {fileID: 1563423753}
   - component: {fileID: 1563423752}
   m_Layer: 0
-  m_Name: Soket_Left
+  m_Name: Socket_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5444,7 +5444,7 @@ GameObject:
   - component: {fileID: 1671487622}
   - component: {fileID: 1671487621}
   m_Layer: 0
-  m_Name: Soket_Mid
+  m_Name: Socket_Mid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5617,7 +5617,7 @@ GameObject:
   - component: {fileID: 1700790947}
   - component: {fileID: 1700790946}
   m_Layer: 0
-  m_Name: Soket_Right
+  m_Name: Socket_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6052,7 +6052,7 @@ GameObject:
   - component: {fileID: 1873799072}
   - component: {fileID: 1873799071}
   m_Layer: 0
-  m_Name: Soket_Left
+  m_Name: Socket_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6156,7 +6156,7 @@ GameObject:
   - component: {fileID: 1878444159}
   - component: {fileID: 1878444158}
   m_Layer: 0
-  m_Name: Soket_Mid
+  m_Name: Socket_Mid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6322,7 +6322,7 @@ GameObject:
   - component: {fileID: 1942023131}
   - component: {fileID: 1942023130}
   m_Layer: 0
-  m_Name: Soket_Right
+  m_Name: Socket_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
