@@ -131,7 +131,54 @@ public class TeleportInputHandlerTouch : TeleportInputHandlerHMD
         // If capacitive touch isn't being used, the base implementation will do the work.
         if (InputMode == InputModes.SeparateButtonsForAimAndTeleport)
         {
-            return base.GetIntention();
+            //return base.GetIntention();
+            if (!isActiveAndEnabled)
+            {
+                return global::LocomotionTeleport.TeleportIntentions.None;
+            }
+
+            if (LocomotionTeleport.CurrentIntention == global::LocomotionTeleport.TeleportIntentions.Aim)
+            {
+                // If the user has actually pressed the teleport button, enter the preteleport state.
+                if (OVRInput.GetDown(TeleportButton))
+                {
+                    return FastTeleport
+                        ? global::LocomotionTeleport.TeleportIntentions.Teleport
+                        : global::LocomotionTeleport.TeleportIntentions.PreTeleport;
+                }
+            }
+
+            // If the user is already in the preteleport state, the intention will be to either remain in this state or switch to Teleport
+            if (LocomotionTeleport.CurrentIntention == global::LocomotionTeleport.TeleportIntentions.PreTeleport)
+            {
+                // If they released the button, switch to Teleport.
+                if (OVRInput.GetUp(TeleportButton))
+                {
+                    // Button released, enter the teleport state.
+                    return global::LocomotionTeleport.TeleportIntentions.Teleport;
+                }
+
+                // Button still down, remain in PreTeleport so they can orient the destination if an orientation handler supports it.
+                return global::LocomotionTeleport.TeleportIntentions.PreTeleport;
+            }
+
+
+            // Update the aim intention based on the button press state of the AimButton.
+            if (OVRInput.Get(AimButton))
+            {
+                InitiatingController = OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) ? OVRInput.Controller.LTouch : OVRInput.Controller.RTouch;
+                return global::LocomotionTeleport.TeleportIntentions.Aim;
+            }
+
+            // If the aim button is the same as the teleport button, then there is no way to abort the teleport.
+            // Since the process of triggering the teleport is complete, returning the Teleport intention is necessary otherwise
+            // the input handler would remain active.
+            if (AimButton == TeleportButton)
+            {
+                return global::LocomotionTeleport.TeleportIntentions.Teleport;
+            }
+
+            return LocomotionTeleport.TeleportIntentions.None;
         }
 
         // ThumbstickTeleport will begin aiming when the thumbstick is pushed.

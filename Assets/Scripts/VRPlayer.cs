@@ -53,6 +53,8 @@ public class VRPlayer : MonoBehaviour
 
     private void Movement()
     {
+        if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger)) return;
+
         float lx = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).x;
         float ly = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y;
         if (Mathf.Abs(lx) >= 0.1f || Mathf.Abs(ly) >= 0.1f)
@@ -60,7 +62,7 @@ public class VRPlayer : MonoBehaviour
             Quaternion adQuater = Quaternion.Euler(rig.centerEyeAnchor.eulerAngles +  new Vector3(0, transform.rotation.y, 0));
             Vector3 dir = adQuater * Vector3.forward * moveSpeed * ly;
             dir += adQuater * Vector3.right * moveSpeed * lx;
-            dir.y = 0f;
+            dir.y = -2f;
 
             controller.Move(dir * Time.deltaTime);
         }
