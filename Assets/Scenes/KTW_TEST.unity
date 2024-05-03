@@ -486,8 +486,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 709501201}
   m_HandleRect: {fileID: 709501200}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 0.99999994
+  m_Value: 1
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -576,7 +576,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7712325601335513753, guid: f6c0e3b9e9227014ca23bd33efc824ad, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.132
+      value: 0.11
       objectReference: {fileID: 0}
     - target: {fileID: 7712325601335513753, guid: f6c0e3b9e9227014ca23bd33efc824ad, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1840,7 +1840,7 @@ GameObject:
   - component: {fileID: 1032744375}
   - component: {fileID: 1032744374}
   - component: {fileID: 1032744373}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Curved Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1884,7 +1884,7 @@ Transform:
   m_GameObject: {fileID: 1032744372}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: -5.45}
+  m_LocalPosition: {x: 0.812, y: 0.53, z: 0.907}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1972,7 +1972,7 @@ GameObject:
   - component: {fileID: 1167644953}
   - component: {fileID: 1167644952}
   - component: {fileID: 1167644954}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1988,7 +1988,7 @@ Transform:
   m_GameObject: {fileID: 1167644947}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.417}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2429,8 +2429,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 88239581}
   m_HandleRect: {fileID: 88239580}
   m_Direction: 2
-  m_Value: 0.99999976
-  m_Size: 0.60999995
+  m_Value: 1.0000002
+  m_Size: 0.61
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3612,6 +3612,7 @@ GameObject:
   - component: {fileID: 2001516117}
   - component: {fileID: 2001516116}
   - component: {fileID: 2001516115}
+  - component: {fileID: 2001516118}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -3669,6 +3670,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2001516118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001516114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2518c50cb3fc6a6458d4b743c2f69c7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  _useInitialPressPositionForDrag: 1
 --- !u!4 &2118835788 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5178814061957520880, guid: d2ef8223f62c3bc4fa995495bbb39a7d, type: 3}
