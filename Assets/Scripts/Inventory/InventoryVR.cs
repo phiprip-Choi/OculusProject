@@ -5,16 +5,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
 public class InventoryVR : MonoBehaviour
 {
-    public GameObject Inventory;
+    public GameObject inventoryPrefab;
     public GameObject Anchor;
+
+    private GameObject Inventory;
     bool UIActive;
 
     private void Start()
     {
+        Inventory = Instantiate(inventoryPrefab);
         Inventory.SetActive(false);
         UIActive = false;
     }

@@ -1,3 +1,4 @@
+using Oculus.Interaction;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -37,6 +38,8 @@ public class Slot : MonoBehaviour
 
     void InsertItem(GameObject obj)
     {
+        //obj.GetComponent<Rigidbody>().useGravity = false;
+        obj.GetComponent<PhysicsGrabbable>().isInventory = true;
         obj.GetComponent<Rigidbody>().isKinematic = true;
         obj.transform.SetParent(gameObject.transform, true);
         obj.transform.localPosition = Vector3.zero;

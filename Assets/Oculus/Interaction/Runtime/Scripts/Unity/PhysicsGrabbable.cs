@@ -27,6 +27,8 @@ namespace Oculus.Interaction
 {
     public class PhysicsGrabbable : MonoBehaviour
     {
+        public bool isInventory = false;
+
         [SerializeField]
         private Grabbable _grabbable;
 
@@ -122,7 +124,7 @@ namespace Oculus.Interaction
             }
 
             // revert the original kinematic state
-            _rigidbody.isKinematic = _savedIsKinematicState;
+            _rigidbody.isKinematic = isInventory ? true : _savedIsKinematicState; // 이쪽을 위주로 수정
         }
 
         public void ApplyVelocities(Vector3 linearVelocity, Vector3 angularVelocity)
