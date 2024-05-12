@@ -1,11 +1,6 @@
-using Oculus.Interaction;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.SearchService;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.UI;
+using Oculus;
 
 public class Slot : MonoBehaviour
 {
@@ -24,12 +19,13 @@ public class Slot : MonoBehaviour
     {
         if (ItemInSlot != null) return;
         GameObject obj = other.gameObject;
-        if(!IsItem(obj)) return;
+        if (!IsItem(obj)) return;
         if (OVRInput.GetUp(OVRInput.Button.SecondaryHandTrigger))
         {
             InsertItem(obj);
         }
     }
+
 
     bool IsItem(GameObject obj)
     {
@@ -38,8 +34,6 @@ public class Slot : MonoBehaviour
 
     void InsertItem(GameObject obj)
     {
-        //obj.GetComponent<Rigidbody>().useGravity = false;
-        obj.GetComponent<PhysicsGrabbable>().isInventory = true;
         obj.GetComponent<Rigidbody>().isKinematic = true;
         obj.transform.SetParent(gameObject.transform, true);
         obj.transform.localPosition = Vector3.zero;
@@ -48,7 +42,6 @@ public class Slot : MonoBehaviour
         obj.GetComponent<Item>().currentSlot = this;
         ItemInSlot = obj;
         slotImage.color = Color.gray;
-
     }
 
     public void ResetColor()
