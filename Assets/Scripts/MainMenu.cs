@@ -20,7 +20,7 @@ public class MainMenu : MonoBehaviour
     {
         OVRScreenFade.instance.FadeOut(() =>
         {
-            SceneManager.LoadScene("Stage1"); //이동할 씬 이름이 같아야 함.
+            SceneManager.LoadScene("Stage1 - 2"); //이동할 씬 이름이 같아야 함.
         });
         
         Debug.Log("move");
