@@ -116,7 +116,7 @@ namespace Oculus.Interaction
                 transform.GetComponent<Item>().currentSlot = null;
                 _rigidbody.isKinematic = false;
                 Debug.Log("여기");
-                //_savedIsKinematicState = false;
+                _savedIsKinematicState = false;
             }
         }
 
@@ -137,7 +137,9 @@ namespace Oculus.Interaction
 
             // revert the original kinematic state
             Debug.Log("저기");
-            //_rigidbody.isKinematic = _savedIsKinematicState; // 이쪽을 위주로 수정
+            _rigidbody.isKinematic = _savedIsKinematicState; // 이쪽을 위주로 수정
+            if (transform.GetComponent<Item>() && transform.GetComponent<Item>().intheCol) _rigidbody.isKinematic = true;
+
         }
 
         public void ApplyVelocities(Vector3 linearVelocity, Vector3 angularVelocity)
