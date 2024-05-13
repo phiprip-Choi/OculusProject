@@ -13,7 +13,7 @@ public class CustomSocket : MonoBehaviour
     public Material HoverMat;
     private Material[] mat;
     private Rigidbody rig;
-    public bool Freeze = true;
+    public bool Freeze = false;
     public bool wasInSoket = false;
 
     public UnityEvent<GameObject> SelectEnter;
@@ -39,9 +39,10 @@ public class CustomSocket : MonoBehaviour
                 count = 0;
                 SelectExit.Invoke(Target);
 
-                if (Freeze == true)
+                if (Freeze)
                 {
                     rig.constraints = RigidbodyConstraints.None;
+                    Freeze = false;
                 }
 
                 wasInSoket = false;
@@ -65,10 +66,11 @@ public class CustomSocket : MonoBehaviour
             Target.transform.rotation = Attach.transform.localRotation;
             Target.transform.position = Attach.transform.position;
             //Target.transform.localScale = scale;
-            if (Freeze == true)
+            if (!Freeze)
             {
                 rig = Target.GetComponent<Rigidbody>();
                 rig.constraints = RigidbodyConstraints.FreezeAll;
+                Freeze = true;
             }
 
 

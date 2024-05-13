@@ -67,6 +67,7 @@ public class VRPlayer : MonoBehaviour
             controller.Move(dir * Time.deltaTime);
         }
     }
+
     void OnDrawGizmos()
     {
 
@@ -84,6 +85,7 @@ public class VRPlayer : MonoBehaviour
             Gizmos.DrawRay(transform.position, Vector3.down * maxDistance);
         }
     }
+
     private IEnumerator DelayRotate()
     {
         isRotate = true;

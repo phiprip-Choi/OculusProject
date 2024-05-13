@@ -20,13 +20,14 @@
 
 using System;
 using UnityEngine;
-using UnityEngine.Assertions;
-using UnityEngine.Serialization;
+using Debug = UnityEngine.Debug;
 
 namespace Oculus.Interaction
 {
     public class PhysicsGrabbable : MonoBehaviour
     {
+        public bool isInventory = false;
+
         [SerializeField]
         private Grabbable _grabbable;
 
@@ -104,6 +105,19 @@ namespace Oculus.Interaction
             _isBeingTransformed = true;
             CachePhysicsState();
             _rigidbody.isKinematic = true;
+
+            if (transform.GetComponent<Item>() == null) return;
+            if (transform.GetComponent<Item>().inSlot)
+            {
+                transform.GetComponentInParent<Slot>().ItemInSlot = null;
+                transform.parent = null;
+                transform.GetComponent<Item>().inSlot = false;
+                transform.GetComponent<Item>().currentSlot.ResetColor();
+                transform.GetComponent<Item>().currentSlot = null;
+                _rigidbody.isKinematic = false;
+                Debug.Log("여기");
+                _savedIsKinematicState = false;
+            }
         }
 
         private void ReenablePhysics()
@@ -122,7 +136,10 @@ namespace Oculus.Interaction
             }
 
             // revert the original kinematic state
-            _rigidbody.isKinematic = _savedIsKinematicState;
+            Debug.Log("저기");
+            _rigidbody.isKinematic = _savedIsKinematicState; // 이쪽을 위주로 수정
+            if (transform.GetComponent<Item>() && transform.GetComponent<Item>().intheCol) _rigidbody.isKinematic = true;
+
         }
 
         public void ApplyVelocities(Vector3 linearVelocity, Vector3 angularVelocity)
