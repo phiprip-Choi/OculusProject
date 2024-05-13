@@ -20,7 +20,7 @@
 
 using UnityEngine;
 using System.Collections; // required for Coroutines
-using UnityEngine.Events;
+using System;
 
 /// <summary>
 /// Fades the screen from black after a new scene is loaded. Fade can also be controlled mid-scene using SetUIFade and SetFadeLevel
@@ -138,16 +138,16 @@ public class OVRScreenFade : MonoBehaviour
     /// <summary>
     /// Start a fade in
     /// </summary>
-    public void FadeIn(UnityAction unityEvant = null)
+    public void FadeIn(Action evant = null)
     {
-        StartCoroutine(Fade(1.0f, 0.0f, unityEvant));
+        StartCoroutine(Fade(1.0f, 0.0f, evant));
     }
 
 
     /// <summary>
     /// Start a fade out
     /// </summary>
-    public void FadeOut(UnityAction evant = null)
+    public void FadeOut(Action evant = null)
     {
         StartCoroutine(Fade(0, 1, evant));
     }
@@ -209,7 +209,7 @@ public class OVRScreenFade : MonoBehaviour
     /// <summary>
     /// Fades alpha from 1.0 to 0.0
     /// </summary>
-    IEnumerator Fade(float startAlpha, float endAlpha, UnityAction evant = null)
+    IEnumerator Fade(float startAlpha, float endAlpha, Action evant = null)
     {
         float elapsedTime = 0.0f;
         while (elapsedTime < fadeTime)
