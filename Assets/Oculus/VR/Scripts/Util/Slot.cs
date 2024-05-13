@@ -8,6 +8,8 @@ public class Slot : MonoBehaviour
     public Image slotImage;
     Color originalColor;
 
+    public bool intheCol = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,13 +19,22 @@ public class Slot : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        
         if (ItemInSlot != null) return;
         GameObject obj = other.gameObject;
         if (!IsItem(obj)) return;
+        obj.GetComponent<Item>().intheCol = true;
         if (OVRInput.GetUp(OVRInput.Button.SecondaryHandTrigger))
         {
             InsertItem(obj);
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        GameObject obj = other.gameObject;
+        if (!IsItem(obj)) return;
+        obj.GetComponent<Item>().intheCol = false;
     }
 
 
