@@ -223,7 +223,7 @@ public class OVRScreenFade : MonoBehaviour
         animatedFadeAlpha = endAlpha;
         SetMaterialAlpha();
 
-        evant.Invoke();
+        evant?.Invoke();
     }
 
     /// <summary>
