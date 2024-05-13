@@ -18,7 +18,11 @@ public class MainMenu : MonoBehaviour
     }
     public void GameScnesCtrl()
     {
-        SceneManager.LoadScene("Stage1"); //이동할 씬 이름이 같아야 함.
+        OVRScreenFade.instance.FadeOut(() =>
+        {
+            SceneManager.LoadScene("Stage1"); //이동할 씬 이름이 같아야 함.
+        });
+        
         Debug.Log("move");
     }
     public void OnClickNewGame()
@@ -28,7 +32,12 @@ public class MainMenu : MonoBehaviour
 
     public void OnClickQuit()
     {
+#if UNITY_EDITER
+        UnityEditor.EditorApplication.isPlaying =false;
+#else
         Application.Quit();
+#endif
+        Debug.Log("눌림");
     }
 
 }
