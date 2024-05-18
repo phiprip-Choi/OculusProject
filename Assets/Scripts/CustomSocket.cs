@@ -42,14 +42,13 @@ public class CustomSocket : MonoBehaviour
                 if (Freeze)
                 {
                     rig.constraints = RigidbodyConstraints.None;
-                    Freeze = false;
                 }
 
                 wasInSoket = false;
             }
 
             //If Target Object get released in target area
-            if (Target.GetComponentInParent<Grabbable>()._activeTransformer == null)
+            if (Target.GetComponentInParent<Grabbable>()._activeTransformer == null && !Target.GetComponent<Item>().inSlot)
             {
                 PlaceAtSoket();
             }
@@ -66,11 +65,10 @@ public class CustomSocket : MonoBehaviour
             Target.transform.rotation = Attach.transform.localRotation;
             Target.transform.position = Attach.transform.position;
             //Target.transform.localScale = scale;
-            if (!Freeze)
+            if (Freeze)
             {
                 rig = Target.GetComponent<Rigidbody>();
                 rig.constraints = RigidbodyConstraints.FreezeAll;
-                Freeze = true;
             }
 
 
@@ -85,11 +83,12 @@ public class CustomSocket : MonoBehaviour
     //Create an instance of the target Object
     private void HoverObject()
     {
-        if (hoverObject == null && wasInSoket == false)
+        if (hoverObject == null && !wasInSoket && !Target.GetComponent<Item>().inSlot)
         {
             //Debug.LogError("Hover Active");
             Debug.Log(Target.name);
             hoverObject = Instantiate(Target, Attach.transform.position, Attach.transform.localRotation);
+            hoverObject.GetComponent<Rigidbody>().isKinematic = true;
             hoverObject.transform.parent = Attach.transform;
             hoverObject.layer = 0;
             hoverObject.GetComponent<Collider>().enabled = false;
