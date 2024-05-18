@@ -116,7 +116,8 @@ namespace Oculus.Interaction
                 transform.GetComponent<Item>().currentSlot = null;
                 _rigidbody.isKinematic = false;
                 Debug.Log("여기");
-                _savedIsKinematicState = false;
+                transform.GetComponent<Item>().intheCol = false;
+                //_savedIsKinematicState = false;
             }
         }
 
@@ -138,6 +139,14 @@ namespace Oculus.Interaction
             // revert the original kinematic state
             Debug.Log("저기");
             _rigidbody.isKinematic = _savedIsKinematicState; // 이쪽을 위주로 수정
+
+            if (!GameObject.Find("InventoryAnchor").transform.GetChild(0).gameObject.activeSelf)
+            {
+                Debug.Log("되는가");
+                transform.GetComponent<Item>().intheCol = false;
+                _rigidbody.isKinematic = false;
+                return;
+            }
             if (transform.GetComponent<Item>() && transform.GetComponent<Item>().intheCol) _rigidbody.isKinematic = true;
 
         }

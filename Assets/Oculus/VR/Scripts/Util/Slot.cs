@@ -8,6 +8,7 @@ public class Slot : MonoBehaviour
     public Image slotImage;
     Color originalColor;
 
+
     public bool intheCol = false;
 
     // Start is called before the first frame update
@@ -28,7 +29,7 @@ public class Slot : MonoBehaviour
         {
             InsertItem(obj);
         }
-    }
+}
 
     private void OnTriggerExit(Collider other)
     {
@@ -59,4 +60,5 @@ public class Slot : MonoBehaviour
     {
         slotImage.color = originalColor;
     }
+
 }

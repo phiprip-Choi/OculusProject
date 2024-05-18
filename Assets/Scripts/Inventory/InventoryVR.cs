@@ -11,14 +11,15 @@ using UnityEngine.UI;
 public class InventoryVR : MonoBehaviour
 {
     public GameObject inventoryPrefab;
-    public GameObject Anchor;
+    public Transform Anchor;
 
     private GameObject Inventory;
     bool UIActive;
 
+
     private void Start()
     {
-        Inventory = Instantiate(inventoryPrefab);
+        Inventory = Instantiate(inventoryPrefab, Anchor);
         Inventory.SetActive(false);
         UIActive = false;
     }

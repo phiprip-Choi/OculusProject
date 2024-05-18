@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class DoorOpening : MonoBehaviour
 {
-    public Welth welth1;
-    public Welth welth2;
-    public Welth welth3;
-    public Welth welth4;
+    public Welth welthOpen;
 
     public float degree = -60f;
 
@@ -15,8 +12,7 @@ public class DoorOpening : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool isOpen = welth1.IsComplete && welth2.IsComplete && welth3.IsComplete && welth4.IsComplete;
-        if (isFirst && isOpen)
+        if (isFirst && welthOpen.IsComplete)
         {
             Debug.Log("Å¬¸¯");
             isFirst = false;
