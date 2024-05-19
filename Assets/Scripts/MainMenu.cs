@@ -6,13 +6,17 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+    public bool isStart = false;
     public GameObject mainMenu;
-    public Button retryBtn;
-    public Button quitBtn;
+    public string nextSceneName;
+    public Button startBtn = null;
+    public Button retryBtn = null;
+    public Button quitBtn = null;
 
     private void Start()
     {
         mainMenu.SetActive(false);
+        startBtn.onClick.AddListener(()=> StartGame());
         retryBtn.onClick.AddListener(() => Retry());
         quitBtn.onClick.AddListener(() => OnClickQuit());    
     }
@@ -26,11 +30,11 @@ public class MainMenu : MonoBehaviour
             transform.GetComponent<VRPlayer>().enabled = !mainMenu.activeSelf;
         }
     }
-    private void GameScnesCtrl()
+    private void StartGame()
     {
         OVRScreenFade.instance.FadeOut(() =>
         {
-            SceneManager.LoadScene("Stage1 - 2"); //이동할 씬 이름이 같아야 함.
+            SceneManager.LoadScene(nextSceneName); //이동할 씬 이름이 같아야 함.
         });
         
         Debug.Log("move");

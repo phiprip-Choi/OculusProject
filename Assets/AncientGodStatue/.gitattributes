@@ -1,0 +1,2 @@
+AG_statue.tga filter=lfs diff=lfs merge=lfs -text
+AG_statue_N.tga filter=lfs diff=lfs merge=lfs -text
