@@ -26,7 +26,6 @@ namespace Oculus.Interaction
 {
     public class PhysicsGrabbable : MonoBehaviour
     {
-        public bool isInventory = false;
 
         [SerializeField]
         private Grabbable _grabbable;

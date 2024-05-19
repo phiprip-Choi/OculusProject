@@ -34,8 +34,9 @@ public class CustomSocket : MonoBehaviour
             Target = other.gameObject;
             HoverObject();
             //If Target Object is grabbed and not actual in soket ( it would activate itself )
-            if (Target.GetComponentInParent<Grabbable>()._activeTransformer != null && wasInSoket == true)
+            if (Target.GetComponentInParent<Grabbable>()._activeTransformer != null && wasInSoket)
             {
+                if (!realObject.Equals(Target)) return;
                 count = 0;
                 SelectExit.Invoke(Target);
 
@@ -70,10 +71,10 @@ public class CustomSocket : MonoBehaviour
                 rig = Target.GetComponent<Rigidbody>();
                 rig.constraints = RigidbodyConstraints.FreezeAll;
             }
-
+            realObject = Target;
 
             SelectEnter.Invoke(Target);
-
+            DestroyHoverObject();
             wasInSoket = true;
             count = 1;
         }
@@ -88,6 +89,7 @@ public class CustomSocket : MonoBehaviour
             //Debug.LogError("Hover Active");
             Debug.Log(Target.name);
             hoverObject = Instantiate(Target, Attach.transform.position, Attach.transform.localRotation);
+            hoverObject.GetComponent<Grabbable>().enabled = false;
             hoverObject.GetComponent<Rigidbody>().isKinematic = true;
             hoverObject.transform.parent = Attach.transform;
             hoverObject.layer = 0;
