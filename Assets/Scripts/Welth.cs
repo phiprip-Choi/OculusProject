@@ -1,13 +1,18 @@
 using Oculus.Interaction;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Welth : MonoBehaviour
 {
+    [HideInInspector] public bool isGameobject;
+
     public GameObject[] welths;
     private HashSet<GameObject> property;
     public bool IsComplete { get; private set; }
+
+    [HideInInspector]public GameObject given;
 
     private void Start()
     {

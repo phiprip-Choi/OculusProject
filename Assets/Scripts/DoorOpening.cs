@@ -4,6 +4,19 @@ using UnityEngine;
 
 public class DoorOpening : MonoBehaviour
 {
+    [Header("Welths")]
+    public Welth zeusWelth;
+    public Welth HeraWelth;
+    public Welth athenaWelth;
+    public Welth apolloWelth;
+
+    [Header("God's Gift")]
+    public GameObject zeusObject;
+    public GameObject heraObject;
+    public GameObject athenaObject;
+    public GameObject apolloObject;
+
+    [Header("Finally Open")]
     public Welth welthOpen;
 
     public float degree = -60f;
@@ -12,6 +25,12 @@ public class DoorOpening : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!zeusObject.activeSelf) zeusObject.SetActive(zeusWelth.IsComplete);
+        if (!heraObject.activeSelf) heraObject.SetActive(HeraWelth.IsComplete);
+        if (!athenaObject.activeSelf) athenaObject.SetActive(athenaWelth.IsComplete);
+        if (!apolloObject.activeSelf) apolloObject.SetActive(apolloWelth.IsComplete);
+
+
         if (isFirst && welthOpen.IsComplete)
         {
             Debug.Log("Å¬¸¯");
