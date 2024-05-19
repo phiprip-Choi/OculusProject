@@ -2,21 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject mainMenu;
+    public Button retryBtn;
+    public Button quitBtn;
+
+    private void Start()
     {
-        
+        mainMenu.SetActive(false);
+        retryBtn.onClick.AddListener(() => Retry());
+        quitBtn.onClick.AddListener(() => OnClickQuit());    
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (OVRInput.GetDown(OVRInput.Button.Three))
+        {
+            mainMenu.SetActive(!mainMenu.activeSelf);
+            transform.GetChild(2).gameObject.SetActive(!mainMenu.activeSelf);
+            transform.GetComponent<VRPlayer>().enabled = !mainMenu.activeSelf;
+        }
     }
-    public void GameScnesCtrl()
+    private void GameScnesCtrl()
     {
         OVRScreenFade.instance.FadeOut(() =>
         {
@@ -25,19 +35,27 @@ public class MainMenu : MonoBehaviour
         
         Debug.Log("move");
     }
-    public void OnClickNewGame()
+
+    private void Retry()
+    {
+        OVRScreenFade.instance.FadeOut(() =>
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name); //이동할 씬 이름이 같아야 함.
+        });
+    }
+
+    private void OnClickNewGame()
     {
         Debug.Log("눌림");
     }
 
-    public void OnClickQuit()
+    private void OnClickQuit()
     {
 #if UNITY_EDITER
         UnityEditor.EditorApplication.isPlaying =false;
 #else
-        Application.Quit();
+        OVRScreenFade.instance.FadeOut(() => { Application.Quit(); });
 #endif
-        Debug.Log("눌림");
     }
 
 }
