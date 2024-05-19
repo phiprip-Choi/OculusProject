@@ -25,10 +25,10 @@ public class DoorOpening : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!zeusObject.activeSelf) zeusObject.SetActive(zeusWelth.IsComplete);
-        if (!heraObject.activeSelf) heraObject.SetActive(HeraWelth.IsComplete);
-        if (!athenaObject.activeSelf) athenaObject.SetActive(athenaWelth.IsComplete);
-        if (!apolloObject.activeSelf) apolloObject.SetActive(apolloWelth.IsComplete);
+        if (!zeusObject.activeSelf && zeusWelth.IsComplete) zeusObject.SetActive(zeusWelth.IsComplete);
+        if (!heraObject.activeSelf && HeraWelth.IsComplete) heraObject.SetActive(HeraWelth.IsComplete);
+        if (!athenaObject.activeSelf && athenaWelth.IsComplete) athenaObject.SetActive(athenaWelth.IsComplete);
+        if (!apolloObject.activeSelf && apolloWelth.IsComplete) apolloObject.SetActive(apolloWelth.IsComplete);
 
 
         if (isFirst && welthOpen.IsComplete)
