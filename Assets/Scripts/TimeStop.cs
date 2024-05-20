@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class TimeStop : MonoBehaviour
 {
-    public void PlayClick()
+    public void ResumeClick()
     {
-        gameObject.SetActive(false);
         Time.timeScale = 1;
     }
 
