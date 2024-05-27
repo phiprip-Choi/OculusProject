@@ -12,13 +12,17 @@ public class MainMenu : MonoBehaviour
     public Button startBtn = null;
     public Button retryBtn = null;
     public Button quitBtn = null;
+    public Button optionBtn = null;
+    public GameObject optionSound;
+    public GameObject startMenu;
 
     private void Start()
     {
         mainMenu.SetActive(false);
         startBtn.onClick.AddListener(()=> StartGame());
         retryBtn.onClick.AddListener(() => Retry());
-        quitBtn.onClick.AddListener(() => OnClickQuit());    
+        quitBtn.onClick.AddListener(() => OnClickQuit());   
+        optionBtn.onClick.AddListener(() => OnClickOption());
     }
 
     private void Update()
@@ -62,4 +66,9 @@ public class MainMenu : MonoBehaviour
 #endif
     }
 
+    private void OnClickOption()
+    {
+        startMenu.SetActive(false);
+        optionSound.SetActive(true);
+    }
 }
