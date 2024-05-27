@@ -12,7 +12,8 @@ public class MainMenu_ : MonoBehaviour
     public Button startBtn = null;
     public Button retryBtn = null;
     public Button quitBtn = null;
-    public float xOffset = 1.0f;
+
+    public float xOffset = 0.01f;
     public GameObject player;
 
     private void Start()
@@ -25,9 +26,8 @@ public class MainMenu_ : MonoBehaviour
 
     private void Update()
     {
-        if (OVRInput.GetDown(OVRInput.Button.Three))
+        if (OVRInput.GetDown(OVRInput.Button.Three)) // x¹öÆ°
         {
-
             Vector3 newPosition = mainMenu.transform.position;
             newPosition.x = player.transform.position.x + xOffset;
             mainMenu.transform.position = newPosition;
@@ -35,6 +35,8 @@ public class MainMenu_ : MonoBehaviour
             mainMenu.SetActive(!mainMenu.activeSelf);
             transform.GetChild(2).gameObject.SetActive(!mainMenu.activeSelf);
             transform.GetComponent<VRPlayer>().enabled = !mainMenu.activeSelf;
+
+            
         }
     }
     private void StartGame()
