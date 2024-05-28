@@ -19,6 +19,8 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         mainMenu.SetActive(false);
+        optionSound.SetActive(false);
+
         startBtn.onClick.AddListener(()=> StartGame());
         retryBtn.onClick.AddListener(() => Retry());
         quitBtn.onClick.AddListener(() => OnClickQuit());   
