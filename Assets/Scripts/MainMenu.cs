@@ -7,10 +7,8 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
     public bool isStart = false;
-    public GameObject mainMenu;
     public string nextSceneName;
     public Button startBtn = null;
-    public Button retryBtn = null;
     public Button quitBtn = null;
     public Button optionBtn = null;
     public GameObject optionSound;
@@ -18,24 +16,16 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
-        mainMenu.SetActive(false);
+        
         optionSound.SetActive(false);
 
         startBtn.onClick.AddListener(()=> StartGame());
-        retryBtn.onClick.AddListener(() => Retry());
+      
         quitBtn.onClick.AddListener(() => OnClickQuit());   
         optionBtn.onClick.AddListener(() => OnClickOption());
     }
 
-    private void Update()
-    {
-        if (OVRInput.GetDown(OVRInput.Button.Three))
-        {
-            mainMenu.SetActive(!mainMenu.activeSelf);
-            transform.GetChild(2).gameObject.SetActive(!mainMenu.activeSelf);
-            transform.GetComponent<VRPlayer>().enabled = !mainMenu.activeSelf;
-        }
-    }
+   
     private void StartGame()
     {
         OVRScreenFade.instance.FadeOut(() =>
@@ -46,19 +36,9 @@ public class MainMenu : MonoBehaviour
         Debug.Log("move");
     }
 
-    private void Retry()
-    {
-        OVRScreenFade.instance.FadeOut(() =>
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name); //이동할 씬 이름이 같아야 함.
-        });
-    }
+    
 
-    private void OnClickNewGame()
-    {
-        Debug.Log("눌림");
-    }
-
+    
     private void OnClickQuit()
     {
 #if UNITY_EDITER
