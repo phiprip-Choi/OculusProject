@@ -6,6 +6,8 @@ public class Same_UI : MonoBehaviour
 {
     public Transform target1;
     public Transform target2;
+    public GameObject optionSound;
+    public GameObject startMenu;
 
     void LateUpdate()
     {
@@ -18,5 +20,10 @@ public class Same_UI : MonoBehaviour
         {
             Debug.LogError("Target Transforms are not assigned.");
         }
+    }
+    public void OnClickBack()
+    {
+        optionSound.SetActive(false);
+        startMenu.SetActive(true);
     }
 }
