@@ -3113,7 +3113,7 @@ RectTransform:
   m_GameObject: {fileID: 1704031405}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.901}
-  m_LocalScale: {x: 0.0063800006, y: 0.00392, z: 0.002}
+  m_LocalScale: {x: 0.002, y: 0.002, z: 0.002}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 769600609}
@@ -3455,7 +3455,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isStart: 0
   nextSceneName: Stage1
+  mainMenu: {fileID: 0}
   startBtn: {fileID: 110878298}
+  retryBtn: {fileID: 0}
   quitBtn: {fileID: 199837399}
   optionBtn: {fileID: 1104017625}
   optionSound: {fileID: 712697621}
