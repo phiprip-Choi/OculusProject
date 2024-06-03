@@ -2872,7 +2872,7 @@ Transform:
   m_GameObject: {fileID: 1223061110}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1.5}
+  m_LocalPosition: {x: -0.033326477, y: 0.38517505, z: -1.6924007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3191,14 +3191,13 @@ MonoBehaviour:
   _selectSurface: {fileID: 0}
   _movementProvider: {fileID: 0}
   _tiebreakerScore: 0
---- !u!4 &1424860189
-Transform:
+--- !u!224 &1424860189
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1424860185}
-  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -3208,6 +3207,11 @@ Transform:
   - {fileID: 1688279277}
   m_Father: {fileID: 1092782449}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1477615850
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4704,6 +4708,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2051449999}
   - component: {fileID: 2051450000}
+  - component: {fileID: 2051450001}
   m_Layer: 0
   m_Name: Opt_Manger
   m_TagString: Untagged
@@ -4749,8 +4754,23 @@ MonoBehaviour:
   quit_btn: {fileID: 547182062}
   back_btn: {fileID: 605605944}
   MainMenuSceneName: Starting_Secnes
-  distanceFromPlayer: 0.01
+  distanceFromPlayer: 0.0001
+  heightAdjustment: -0.2
   player: {fileID: 1534802188}
+--- !u!114 &2051450001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051449997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 452f04b6049651b4eb151ed2bf9e1c3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target1: {fileID: 1092782449}
+  target2: {fileID: 1223061113}
 --- !u!1 &2066981847
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,7 +17,8 @@ public class MainMenu_ : MonoBehaviour
     public Button back_btn = null;
     public string MainMenuSceneName;
 
-    public float distanceFromPlayer = 0.1f;
+    public float distanceFromPlayer = 0.001f;
+    public float heightAdjustment = -0.2f;
     public GameObject player;
 
     private void Start()
@@ -55,6 +56,8 @@ public class MainMenu_ : MonoBehaviour
 
                 // UI 위치 설정 (플레이어 앞 거리만큼)
                 Vector3 newPosition = playerPosition + forwardDirection * distanceFromPlayer;
+                newPosition.y += heightAdjustment;
+
                 OptionMenu.transform.position = newPosition;
 
                 OptionMenu.SetActive(true);
