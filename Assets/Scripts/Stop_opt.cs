@@ -21,6 +21,9 @@ public class MainMenu_ : MonoBehaviour
     public float heightAdjustment = -0.2f;
     public GameObject player;
 
+    public Slider volumeSlider; // 볼륨 슬라이더
+    public AudioSource backgroundMusic; // 배경 음악 오디오 소스
+
     private void Start()
     {
         OptionMenu.SetActive(false);
@@ -31,6 +34,9 @@ public class MainMenu_ : MonoBehaviour
         retry_btn.onClick.AddListener(() => GameRetry());
         mainMenu_btn.onClick.AddListener(() => LoadMainMenu());
         quit_btn.onClick.AddListener(() => GameQuit());
+
+        volumeSlider.onValueChanged.AddListener(SetVolume);
+        volumeSlider.value = backgroundMusic.volume;
     }
 
     private void Update()
@@ -104,4 +110,8 @@ public class MainMenu_ : MonoBehaviour
 #endif
     }
 
+    private void SetVolume(float volume)
+    {
+        backgroundMusic.volume = volume;
+    }
 }
