@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class Same_UI : MonoBehaviour
 {
     public Transform target1;
-    public Transform target2;
+    public Transform target2;   
+
     public GameObject optionSound;
     public GameObject startMenu;
     public Button Back_btn;
@@ -24,6 +25,7 @@ public class Same_UI : MonoBehaviour
         {
             target2.position = target1.position;
             target2.rotation = target1.rotation;
+            
         }
        
     }
