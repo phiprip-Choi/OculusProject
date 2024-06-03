@@ -17,7 +17,7 @@ public class MainMenu_ : MonoBehaviour
     public Button back_btn = null;
     public string MainMenuSceneName;
 
-    public float distanceFromPlayer = 0.001f;
+    public float distanceFromPlayer = -0.5f;
     public float heightAdjustment = -0.2f;
     public GameObject player;
 

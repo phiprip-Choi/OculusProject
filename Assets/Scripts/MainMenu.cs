@@ -31,7 +31,7 @@ public class MainMenu : MonoBehaviour
 
     private void Update()
     {
-        if (OVRInput.GetDown(OVRInput.Button.Three))
+        if (OVRInput.GetDown(OVRInput.Button.Three) && SceneManager.GetActiveScene().name != "Starting_Secnes")
         {
             mainMenu.SetActive(!mainMenu.activeSelf);
             transform.GetChild(2).gameObject.SetActive(!mainMenu.activeSelf);
