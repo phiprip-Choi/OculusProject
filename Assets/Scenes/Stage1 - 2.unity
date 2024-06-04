@@ -7611,7 +7611,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isStart: 0
   nextSceneName: Starting_Secnes
-  mainMenu: {fileID: 0}
+  mainMenu: {fileID: 1260148035}
   startBtn: {fileID: 1294988411}
   retryBtn: {fileID: 1294988413}
   quitBtn: {fileID: 1294988412}
@@ -11967,6 +11967,11 @@ MonoBehaviour:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3221705709937263263, guid: 1d049fc2648ed254ab5ac5cef15c339a, type: 3}
   m_PrefabInstance: {fileID: 2001147666}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1260148035 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3233220397014644360, guid: 8227765008d3dd742a7e791e1bbc7cff, type: 3}
+  m_PrefabInstance: {fileID: 1294988409}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1287024536
 GameObject:
