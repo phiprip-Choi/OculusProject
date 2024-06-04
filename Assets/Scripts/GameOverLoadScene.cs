@@ -4,19 +4,19 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameOver : MonoBehaviour
+public class GameOverLoadScene : MonoBehaviour
 {
 
-    public string nextSceneName;
+    public string GameOver;
     private float gameTime = 15;
 
     void Update()
     {
         gameTime -= Time.deltaTime;
         Debug.Log((int)gameTime);
-        if((int)gameTime == 0)
+        if ((int)gameTime == 0)
         {
-            SceneManager.LoadScene(nextSceneName);
+            SceneManager.LoadScene(GameOver);
             Debug.Log("게임 종료");
         }
     }
