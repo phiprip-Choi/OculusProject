@@ -3318,6 +3318,14 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1731013117101681235, guid: f6c0e3b9e9227014ca23bd33efc824ad, type: 3}
+      propertyPath: groudSzie.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731013117101681235, guid: f6c0e3b9e9227014ca23bd33efc824ad, type: 3}
+      propertyPath: groudSzie.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1731013117101681235, guid: f6c0e3b9e9227014ca23bd33efc824ad, type: 3}
       propertyPath: maxDistance
       value: 0.9
       objectReference: {fileID: 0}
@@ -4619,7 +4627,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7712325601335513753, guid: f6c0e3b9e9227014ca23bd33efc824ad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: 1.58
       objectReference: {fileID: 0}
     - target: {fileID: 7712325601335513753, guid: f6c0e3b9e9227014ca23bd33efc824ad, type: 3}
       propertyPath: m_LocalPosition.z
