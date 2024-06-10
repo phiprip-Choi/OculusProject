@@ -70,3 +70,7 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+Assets/AncientGodStatue/AG_statue.tga
+Assets/AncientGodStatue/AG_statue.tga.meta
+Assets/AncientGodStatue/AG_statue_N.tga
+Assets/AncientGodStatue/AG_statue_N.tga.meta
